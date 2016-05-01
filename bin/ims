@@ -1,0 +1,27 @@
+#!/usr/bin/env python 
+#!/usr/local/bin/python3
+import requests
+import os
+from bs4 import BeautifulSoup
+from urllib.parse import quote_plus as qp
+import sys
+
+movie = 'spiderman 2'
+movie = ' '.join(sys.argv[1:])
+print (movie)
+
+movie =  (qp(movie))
+url = 'https://kat.cr/usearch/'+movie+'category:movies/'
+print (url)
+
+a = requests.get(url)
+soup = BeautifulSoup(a.text, 'html.parser')
+movie_page = 'https://kat.cr'+(soup.find_all("a", class_="cellMainLink")[0].get('href'))
+print (movie_page)
+
+url = requests.get(movie_page)
+soup = BeautifulSoup(url.text, 'html.parser')
+print (soup.find_all('a', class_='siteButton')[0].get('href'))
+torrent_url = 'https:'+soup.find_all('a', class_='siteButton')[0].get('href')
+print (torrent_url)
+os.system ('peerflix '+torrent_url+' -a --vlc')
