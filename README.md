@@ -3,12 +3,12 @@
 Streams the movie/ tv series instantly.
 
 
-##### Installation
+### Installation
 ```
 pip install ims
 ```
 
-##### Usage
+### Usage
 Query for the movie name:
 
 ```
@@ -29,7 +29,7 @@ $ ims silicon valley s03e01
 $ ims game of thrones s06e05
 ```
 
-##### Requirements
+### Requirements
 
 Make sure you have [NPM](https://docs.npmjs.com/getting-started/installing-node) and [VLC media player](http://www.videolan.org) installed.
 
