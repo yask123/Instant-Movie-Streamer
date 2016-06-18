@@ -38,7 +38,7 @@ $ ims tv game of thrones s06e05
 
 ### Video Demo
 
-[![Demo](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![Demo](https://img.youtube.com/vi/MSNHmrg25_E/0.jpg)](https://www.youtube.com/watch?v=MSNHmrg25_E)
 
 ### Requirements
 
