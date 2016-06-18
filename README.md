@@ -29,6 +29,10 @@ $ ims silicon valley s03e01
 $ ims game of thrones s06e05
 ```
 
+### Video Demo
+
+[![Demo](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
 ### Requirements
 
 Make sure you have [NPM](https://docs.npmjs.com/getting-started/installing-node) and [VLC media player](http://www.videolan.org) installed.
