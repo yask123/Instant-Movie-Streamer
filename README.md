@@ -10,23 +10,30 @@ pip install ims
 
 ### Usage
 Query for the movie name:
+```
+$ ims movie [movie name]
+```
 
 ```
-$ ims the dark knight
+$ ims movie the dark knight
 ```
 
 ```
-$ ims the minions 2015
+$ ims movie the minions 2015
 ```
 
 Query for TV series:
 
 ```
-$ ims silicon valley s03e01
+$ ims tv [series name]e[episode no]s[season no]
 ```
 
 ```
-$ ims game of thrones s06e05
+$ ims tv silicon valley s03e01
+```
+
+```
+$ ims tv game of thrones s06e05
 ```
 
 ### Video Demo

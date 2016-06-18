@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(name="ims",
-	  version="2.4",
+	  version="2.5",
 	  description="Instantly stream movies/ tv episodes",
 	  url="http://iyask.me",
 	  author="Yask Srivastava",
