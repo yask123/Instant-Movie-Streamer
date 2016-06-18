@@ -40,11 +40,11 @@ def get_input():
 
 def get_torrent_url(search_url):
     """Grabs the best matched torrent URL from the search results."""
-    search_request_response = requests.get(search_url)
+    search_request_response = requests.get(search_url, verify=False)
     soup = BeautifulSoup(search_request_response.text, 'html.parser')
     movie_page = 'https://kat.cr' + (soup.find_all("a", class_="cellMainLink")[0].get('href'))
 
-    search_url = requests.get(movie_page)
+    search_url = requests.get(movie_page, verify=False)
     soup = BeautifulSoup(search_url.text, 'html.parser')
     torrent_url = 'https:' + soup.find_all('a', class_='siteButton')[0].get('href')
     return torrent_url
