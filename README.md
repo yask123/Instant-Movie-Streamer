@@ -41,3 +41,7 @@ The script requires following dependencies and downloads them automatically.
 
 
 Tried and tested on MacOSX and Ubuntu.
+
+### Disclaimer
+
+Watching copyright content might me illegal in your country. 
