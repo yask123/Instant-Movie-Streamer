@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+
 import os
 import sys
 
 import requests
 from bs4 import BeautifulSoup
 
-DEBUG = False
+DEBUG = True
 
 
 def test_system():
@@ -21,11 +22,18 @@ def test_system():
 def get_input():
     """Gets the input from user and formats it."""
     try:
-        movie = ' '.join(sys.argv[1:]).replace(' ', '%20')
+        query = ' '.join(sys.argv[1:])
+        cat = query.split()[0]
+        movie_name = ' '.join(query.split()[1:])
+        print cat, movie_name
+        if cat == 'movie':
+            query = (movie_name + ' category:movies').replace(' ', '%20')
+        elif cat == 'tv':
+            query = (movie_name + ' category:tv').replace(' ', '%20')
     except Exception as e:
         print e
         exit()
-    return movie
+    return query
 
 
 def get_torrent_url(search_url):
