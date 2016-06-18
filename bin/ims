@@ -25,11 +25,13 @@ def get_input():
         query = ' '.join(sys.argv[1:])
         cat = query.split()[0]
         movie_name = ' '.join(query.split()[1:])
-        print cat, movie_name
         if cat == 'movie':
             query = (movie_name + ' category:movies').replace(' ', '%20')
         elif cat == 'tv':
             query = (movie_name + ' category:tv').replace(' ', '%20')
+        else:
+            print 'Invalid format, please specify if its a movie or tv series.'
+            exit()
     except Exception as e:
         print e
         exit()
@@ -51,9 +53,6 @@ def get_torrent_url(search_url):
 
 test_system()
 movie = get_input()
-while movie == '':
-    print 'Enter the search query'
-    movie = raw_input().replace(' ', '%20')
 url = 'https://kat.cr/usearch/' + movie
 if DEBUG:
     print url
