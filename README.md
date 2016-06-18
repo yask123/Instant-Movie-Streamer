@@ -5,7 +5,7 @@ Streams the movie/ tv series instantly.
 
 ### Installation
 ```
-pip install ims
+$ pip install ims
 ```
 
 ### Usage

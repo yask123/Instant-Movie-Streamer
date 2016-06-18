@@ -46,7 +46,6 @@ def get_torrent_url(search_url):
 
     search_url = requests.get(movie_page)
     soup = BeautifulSoup(search_url.text, 'html.parser')
-    print (soup.find_all('a', class_='siteButton')[0].get('href'))
     torrent_url = 'https:' + soup.find_all('a', class_='siteButton')[0].get('href')
     return torrent_url
 
