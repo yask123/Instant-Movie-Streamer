@@ -1,26 +1,62 @@
-#!/usr/local/opt/python/bin/python2.7
-import requests
+#!/usr/bin/env python
 import os
-from bs4 import BeautifulSoup
-from urllib import quote_plus as qp
 import sys
 
-movie = 'spiderman 2'
-movie = ' '.join(sys.argv[1:])
-print (movie)
+import requests
+from bs4 import BeautifulSoup
 
-movie =  (qp(movie))
-url = 'https://kat.cr/usearch/'+movie+'category:movies/'
-print (url)
+DEBUG = False
 
-a = requests.get(url)
-soup = BeautifulSoup(a.text, 'html.parser')
-movie_page = 'https://kat.cr'+(soup.find_all("a", class_="cellMainLink")[0].get('href'))
-print (movie_page)
 
-url = requests.get(movie_page)
-soup = BeautifulSoup(url.text, 'html.parser')
-print (soup.find_all('a', class_='siteButton')[0].get('href'))
-torrent_url = 'https:'+soup.find_all('a', class_='siteButton')[0].get('href')
-print (torrent_url)
-os.system ('peerflix '+torrent_url+' -a --vlc')
+def test_system():
+    '''Runs few tests to check if npm and peerflix is installed on the system'''
+    if os.system('npm --version') != 0:
+        print 'NPM not installed installed, please read the Readme file for more information.'
+        exit()
+    if os.system('peerflix --version') != 0:
+        print 'Peerflix not installed, installing..'
+        os.system('npm install -g peerflix')
+
+
+def get_input():
+    '''Gets the input from user and formats it'''
+    try:
+        movie = ' '.join(sys.argv[1:]).replace(' ', '%20')
+    except Exception as e:
+        print e
+        exit()
+    return movie
+
+
+def get_torrent_url(search_url):
+    search_request_response = requests.get(search_url)
+    soup = BeautifulSoup(search_request_response.text, 'html.parser')
+    movie_page = 'https://kat.cr' + (soup.find_all("a", class_="cellMainLink")[0].get('href'))
+
+    search_url = requests.get(movie_page)
+    soup = BeautifulSoup(search_url.text, 'html.parser')
+    print (soup.find_all('a', class_='siteButton')[0].get('href'))
+    torrent_url = 'https:' + soup.find_all('a', class_='siteButton')[0].get('href')
+    return torrent_url
+
+
+test_system()
+movie = get_input()
+while movie == '':
+    print 'Enter the search query'
+    movie = raw_input().replace(' ', '%20')
+url = 'https://kat.cr/usearch/' + movie
+if DEBUG:
+    print url
+torrent_url = ''
+try:
+    print 'Searching....'
+    torrent_url = get_torrent_url(url)
+except Exception as e:
+    print e
+    exit()
+if torrent_url:
+    print ('Streaming Torrent: ' + torrent_url)
+    os.system('peerflix ' + torrent_url + ' -a --vlc')
+else:
+    print 'No results found'

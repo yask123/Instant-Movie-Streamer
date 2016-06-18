@@ -2,12 +2,15 @@
 from setuptools import setup
 
 setup(name="ims",
-	version="1.0",
-	description="Instantly stream movies/ tv episodes",
-	url="iyask.me",
-	author="Yask Srivastava",
-	author_email="yask123@gmail.com",
-	license='MIT',
-	packages=["ims"],
-	scripts=["bin/ims"],
-	zip_safe=False)
+	  version="2.2",
+	  description="Instantly stream movies/ tv episodes",
+	  url="http://iyask.me",
+	  author="Yask Srivastava",
+	  author_email="yask123@gmail.com",
+	  license='MIT',
+	  packages=["ims"],
+	  scripts=["bin/ims"],
+	  nstall_requires=[
+		  'BeautifulSoup4',
+		  'requests'],
+	  zip_safe=False)
