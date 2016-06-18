@@ -40,3 +40,4 @@ The script requires following dependencies and downloads them automatically.
 3. Peerflix 
 
 
+Tried and tested on MacOSX and Ubuntu.
