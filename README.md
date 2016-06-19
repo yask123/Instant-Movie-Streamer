@@ -1,6 +1,6 @@
 # Instant Movie Streamer
 
-Streams the movie/ tv series instantly.
+Searches for the movie/ tv series torrents and streams them instantly.
 
 
 ### Installation
