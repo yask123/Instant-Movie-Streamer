@@ -25,7 +25,7 @@ $ ims movie the minions 2015
 Query for TV series:
 
 ```
-$ ims tv [series name]s[series no]e[episode no]
+$ ims tv s[series no]e[episode no]
 ```
 
 ```
