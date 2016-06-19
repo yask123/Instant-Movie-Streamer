@@ -10,7 +10,7 @@ setup(name="ims",
 	  license='MIT',
 	  packages=["ims"],
 	  scripts=["bin/ims"],
-	  nstall_requires=[
+	  install_requires=[
 		  'BeautifulSoup4',
 		  'requests'],
 	  zip_safe=False)
