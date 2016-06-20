@@ -55,4 +55,4 @@ Tried and tested on MacOSX and Ubuntu.
 
 ### Disclaimer
 
-Watching copyright content might me illegal in your country. 
+Watching copyrighted content might be illegal in your country.
