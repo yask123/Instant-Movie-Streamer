@@ -8,3 +8,6 @@ parts
 src/*.egg-info
 lib
 lib64
+ims.egg-info
+.idea
+cle
