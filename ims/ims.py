@@ -52,7 +52,7 @@ def get_torrent_url(search_url):
 
 test_system()
 movie = get_input()
-url = 'https://kat.cr/usearch/' + movie
+url = 'http://dx-torrente.com/usearch/' + movie
 if DEBUG:
     print url
 torrent_url = ''
