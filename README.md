@@ -11,29 +11,29 @@ $ pip install ims
 ### Usage
 Query for the movie name:
 ```
-$ ims movie [movie name]
+$ ims [movie name]
 ```
 
 ```
-$ ims movie the dark knight
+$ ims  the dark knight
 ```
 
 ```
-$ ims movie the minions 2015
+$ ims  the minions 2015
 ```
 
 Query for TV series:
 
 ```
-$ ims tv s[series no]e[episode no]
+$ ims [series name] s[series no]e[episode no]
 ```
 
 ```
-$ ims tv silicon valley s03e01
+$ ims silicon valley s03e01
 ```
 
 ```
-$ ims tv game of thrones s06e05
+$ ims game of thrones s06e05
 ```
 
 ### Video Demo
@@ -48,7 +48,7 @@ The script requires following dependencies and downloads them automatically.
 
 1. Requests
 2. Beautiful Soup
-3. Peerflix 
+3. Peerflix
 
 
 Tried and tested on MacOSX and Ubuntu.
