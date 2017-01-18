@@ -23,47 +23,36 @@ def get_input():
     """Gets the input from user and formats it."""
     try:
         query = ' '.join(sys.argv[1:])
-        cat = query.split()[0]
-        movie_name = ' '.join(query.split()[1:])
-        if cat == 'movie':
-            query = (movie_name + ' category:movies').replace(' ', '%20')
-        elif cat == 'tv':
-            query = (movie_name + ' category:tv').replace(' ', '%20')
-        else:
-            print 'Invalid format, please specify if its a movie or tv series.'
-            exit()
+        movie_name = ' '.join(query.split()[0:])
+        return movie_name
     except Exception as e:
         print e
         exit()
     return query
 
+def get_magnet_link(movie_name = 'harry potter'):
 
-def get_torrent_url(search_url):
-    """Grabs the best matched torrent URL from the search results."""
-    search_request_response = requests.get(search_url, verify=False)
-    soup = BeautifulSoup(search_request_response.text, 'html.parser')
-    movie_page = 'https://kat.cr' + (soup.find_all("a", class_="cellMainLink")[0].get('href'))
+    URL = 'https://www.skytorrents.in/search/all/ed/1/?q='+movie_name.replace(' ', '+')
 
-    search_url = requests.get(movie_page, verify=False)
-    soup = BeautifulSoup(search_url.text, 'html.parser')
-    torrent_url = 'https:' + soup.find_all('a', class_='siteButton')[0].get('href')
-    return torrent_url
+    resp = requests.get(URL)
+    soup = BeautifulSoup(resp.text, 'html.parser')
 
+    movie_page = soup.find_all("a")
 
-test_system()
-movie = get_input()
-url = 'http://dx-torrente.com/usearch/' + movie
-if DEBUG:
-    print url
-torrent_url = ''
-try:
-    print 'Searching....'
-    torrent_url = get_torrent_url(url)
-except Exception as e:
-    print e
-    exit()
-if torrent_url:
-    print ('Streaming Torrent: ' + torrent_url)
-    os.system('peerflix ' + torrent_url + ' -a --vlc')
-else:
-    print 'No results found'
+    for each in movie_page:
+        if 'magnet:' in each.get('href'):
+            return each.get('href')
+
+def main():
+    test_system()
+    movie = get_input()
+    try:
+        print ('Streaming Torrent')
+        command = 'peerflix "'+get_magnet_link(movie)+'" --vlc'
+        os.system(command)
+    except Exception as e:
+        print e
+        exit()
+
+if __name__ == '__main__':
+    main()
