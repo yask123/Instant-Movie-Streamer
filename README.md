@@ -2,6 +2,7 @@
 
 Searches for the movie/ tv series torrents and streams them instantly.
 
+<a href="https://www.buymeacoffee.com/CyN7Kv3">Buy me a coffee</a>
 
 ### Installation
 ```
